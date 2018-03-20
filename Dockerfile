@@ -17,14 +17,9 @@ RUN apt-get update \
     
 RUN apt-update \
     && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y -q  \
-        curl \
-        wget \
         php7.2 \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-RUN curl -sS https://getcomposer.org/installer | php \
-    && mv composer.phar /usr/local/bin/composer
 
 RUN mkdir -p /run/php/ && \
     touch /run/php/php7.0-fpm.sock
