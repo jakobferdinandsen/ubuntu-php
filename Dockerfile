@@ -15,7 +15,7 @@ RUN apt-get update \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
-RUN apt-update \
+RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install --no-install-recommends -y -q  \
         php7.2 \
     && apt-get -y clean \
