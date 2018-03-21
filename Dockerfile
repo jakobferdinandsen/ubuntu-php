@@ -24,6 +24,6 @@ RUN apt-get update \
 RUN mkdir -p /run/php/ && \
     touch /run/php/php7.2-fpm.sock
     
-CMD ["php-fpm7.2", "--nodaemonize", "--fpm-config", "/etc/php/7.2/fpm/php-fpm.conf"]
+CMD /usr/sbin/php-fpm7.2
 
 WORKDIR /var/www
