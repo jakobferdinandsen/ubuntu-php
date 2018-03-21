@@ -24,6 +24,6 @@ RUN apt-get update \
 RUN mkdir -p /run/php/ && \
     touch /run/php/php7.2-fpm.sock
     
-CMD /usr/bin/php7.2-fpm
+CMD /usr/bin/php-fpm7.2
 
 WORKDIR /var/www
