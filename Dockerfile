@@ -21,14 +21,14 @@ RUN apt-get update \
     && apt-get -y clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
     
-RUN sed -i -e "s/^error_log =/;error_log =/" /etc/php/7.0/fpm/php-fpm.conf && \
-    sed -i -e "s/;daemonize = yes/daemonize = no/" /etc/php/7.0/fpm/php-fpm.conf && \
+RUN sed -i -e "s/^error_log =/;error_log =/" /etc/php/7.2/fpm/php-fpm.conf && \
+    sed -i -e "s/;daemonize = yes/daemonize = no/" /etc/php/7.2/fpm/php-fpm.conf && \
     sed -i -e "/^;error_log =/ a \
-error_log = /proc/self/fd/2 " /etc/php/7.0/fpm/php-fpm.conf
+error_log = /proc/self/fd/2 " /etc/php/7.2/fpm/php-fpm.conf
 
 RUN mkdir -p /run/php/ && \
     touch /run/php/php7.2-fpm.sock
     
-CMD ["php-fpm7.0", "--nodaemonize", "--fpm-config", "/etc/php/7.0/fpm/php-fpm.conf"]
+CMD ["php-fpm7.2", "--nodaemonize", "--fpm-config", "/etc/php/7.2/fpm/php-fpm.conf"]
 
 WORKDIR /var/www
